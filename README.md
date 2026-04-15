@@ -52,7 +52,6 @@ frontend runs on: http://localhost:3000
 ##  API Explanation : 
 
 ### 1. POST [/api/health-data](http://localhost:8000/api/health-data)
-
 stores health data in database.
 
 #### Request body:
