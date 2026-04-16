@@ -112,8 +112,8 @@ Device sends data via POST API -> backend stores data in MongoDB -> frontend fet
 
 ## Live deployement
 
-Frontend (Vercel): https://your-frontend-link.vercel.app  
-Backend (Render): https://health-backend-3qyn.onrender.com
+Frontend (Vercel): https://health-dashboard-three-coral.vercel.app/ 
+Backend (Render): https://health-backend-3qyn.onrender.com/api/health-data/Mehra02
 
 ## Environment variables
 
