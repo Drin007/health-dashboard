@@ -17,7 +17,7 @@ function Dashboard() {
 
     try {
         const res = await axios.get(
-            `http://localhost:8000/api/health-data/${deviceId}`
+            `https://health-backend-3qyn.onrender.com/api/health-data/${deviceId}` // after deployement of backend i changed this front end url
         );
         setData(res.data);
     } catch (err) {
