@@ -51,7 +51,7 @@ frontend runs on: http://localhost:3000
 
 ##  API Explanation : 
 
-### 1. POST [/api/health-data](http://localhost:8000/api/health-data)
+### 1. POST [/api/health-data](https://health-backend-3qyn.onrender.com/api/health-data)
 stores health data in database.
 
 #### Request body:
@@ -75,7 +75,7 @@ stores health data in database.
 
 ---
 
-###  2. GET [/api/health-data/:device_id](http://localhost:8000/api/health-data/:device_id)
+###  2. GET [/api/health-data/:device_id](https://health-backend-3qyn.onrender.com/api/health-data/:device_id)
 
 Fetches latest 10 records for a single device.
 
@@ -109,4 +109,34 @@ GET /api/health-data/Mehra02
 ## workflow : 
 
 Device sends data via POST API -> backend stores data in MongoDB -> frontend fetches data using GET API -> dashboard updates automatically
+
+## Live deployement
+
+Frontend (Vercel): https://your-frontend-link.vercel.app  
+Backend (Render): https://health-backend-3qyn.onrender.com
+
+## Environment variables
+
+Backend uses environment variables for secure database connection:
+
+MONGO_URI=mongodb+srv://<username>:<andsecretpasswordoftheuser>@cluster0.ygyjbzw.mongodb.net/healthDB
+
+# API Testing
+
+APIs were tested using tools like: Postman and Browser 
+
+# Challenges Faced
+
+- Mongodb atlas connection issues because of ip restriction
+- Environment variable setup in deployment
+- React useEffect dependency handling as it was causing deployment issues
+- CORS handling between frontend and backend
+
+# screenshots of project ( front end and backend )
+
+![Dashboard](./images/Dashboard.png)
+
+![Backend](./images/Backend.png)
+
+
 
