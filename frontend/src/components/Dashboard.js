@@ -1,35 +1,34 @@
-import { useState, useEffect, useCallback } from "react";
+import {useState, useEffect, useCallback} from "react";
 import axios from "axios";
 
-function Dashboard() {
-    const [deviceId, setDeviceId] = useState("");
-    const [data, setData] = useState([]);
+function Dashboard(){
+    const [deviceId,setDeviceId] = useState("");
+    const [data,setData] = useState([]);
     const [loading, setLoading] = useState(false );
 
-    const fetchData = useCallback(async () => {
-        if (!deviceId) return;
-
+    const fetchData = useCallback(async()=>{ //previously fetchData is used inside useEffect,and without useCallback it gets recreated on every render causing dependency issues and unnecessary re renders, so i optimised it for preventing infinite loop
+        if(!deviceId) return;
         setLoading(true);
 
-        try {
+        try{
             const res = await axios.get(
                 `https://health-backend-3qyn.onrender.com/api/health-data/${deviceId}`
             );
 
             setData(res.data );
-        } catch (err) {
+        } catch(err){
             console.log( err );
         }
 
         setLoading(false);
     }, [deviceId ]);
 
-    useEffect(() => {
-        const interval = setInterval( ()=> {
+    useEffect(()=>{
+        const interval = setInterval(()=>{
             fetchData();
-        }, 5000 );
+        },5000);
 
-        return ()=>clearInterval(interval);
+        return ()=>clearInterval(interval );
     }, [ fetchData ]);
 
     return (
