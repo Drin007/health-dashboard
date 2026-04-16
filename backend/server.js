@@ -13,6 +13,8 @@ app.use("/api/health-data", healthRoutes);
 mongoose.connect(process.env.MONGO_URI).then(
     () => console.log("db connected")).catch(err => console.log(err));
 
-app.listen(8000, () => {
-    console.log("server running on port 8000");
+
+const PORT = process.env.PORT || 8000; // earlier it was showing error in render as i used only port no. 8000 therefore learned this part's importance during deploying this assignment
+app.listen(PORT, () => {
+    console.log(`server running on port ${PORT}`);
 });
